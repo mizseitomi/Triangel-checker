@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Háromszög
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Adja meg a háromszög oldalainak hosszát (cm): ");
+            Console.Write("a oldal: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("b oldal: ");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("c oldal: ");
+            int c = int.Parse(Console.ReadLine()); 
+            Console.WriteLine();
+
+            //Szerkeszthető-e?
+            if (a + b > c && a + c > b && b + c > a)
+            {
+                Console.WriteLine("Szerkeszthető: igen");
+                //Derékszögű-e?
+                if ((a * a) + (b * b) == (c * c) || (a * a) + (c * c) == (b * b) || (b * b) + (c * c) == (a * a))
+                {
+                    Console.WriteLine("Derékszögű: igen");
+                }
+                else Console.WriteLine("Derékszögű: nem");
+                //Egyenlő szárú?
+                if (a == b || a == c || b == c) Console.WriteLine("Egyenlő szárú: igen");
+                else Console.WriteLine("Egyenlő szárú: nem");
+                int k = a + b + c;
+                double s = k / 2;
+                //Kerület
+                Console.WriteLine("Kerülete: {0} cm", k);
+                //Terület
+                double t = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
+                Console.WriteLine("Területe: {0:0.00} cm2", t);
+            }
+            else Console.WriteLine("Szerkeszthető: nem");
+            
+           
+
+            Console.ReadLine();
+        }
+    }
+}
